@@ -74,11 +74,11 @@
             <div class="card-body py-5 px-md-5">
 
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-10 text-white">
+                    <div class="col-lg-10 text-white txt-center">
                         <h2 class="fw-bold mb-5 ">Registrate</h2>
                         <form action="#" th:action="@{/guardar}" th:object="${estudiante}" method="post">
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="col-md-6 col-sm-10">
                                         <div class="form-group">
                                             <label for="userName">RUT *</label>
                                             <input id="userName" name="username" th:field="*{rut}" type="text"
@@ -100,7 +100,7 @@
                                                 class="form-control required">
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-md-5 col-sm-10">
                                         <div class="form-group">
                                             <label for="Direccion">Direccion *</label>
                                             <input id="Direccion" name="Direccion" th:field="*{direccion}" type="text"
