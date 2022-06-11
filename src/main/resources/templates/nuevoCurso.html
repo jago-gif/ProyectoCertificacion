@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Java people</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/logo.png" rel="icon">
+  <link href="/assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor bootstrap y iconos -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!--efecto deslizante-->
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Carrusel de texto-->
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="page-index">
+
+ <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <h1 class="d-flex align-items-center">Java People</h1>
+        <img src="assets/img/logo.png" alt=""> 
+
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/registrate">Registrame</a></li>
+          <li><a href="/cursosDisponibles">Cursos Disponibles</a></li>
+          <li><a href="/homepanel">Mi Panel</a></li>
+                   
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/about-header.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+
+        <h2>Administración</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/admin">Administración</a></li>
+          <li>Crear Curso</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Tabla ======= -->
+    <section class="Administración  ">
+      <div class="container text-center" data-aos="fade-up">
+        <form action="#" th:action="@{/admin/guardarCurso}" th:object="${curso}" method="post" enctype="multipart/form-data">
+          <fieldset>
+                       <legend>Información del curso</legend>
+                       
+             <input id="idcurso" th:field="*{id}" type="hidden">
+                      
+                       <div class="row justify-content-center">
+                           
+                               <div class="form-group col-8 ">
+                                   <label for="nombre">Nombre *</label>
+                                   <input id="nombre" name="nombre" th:field="*{nombre}" type="text"
+                                          class="form-control required">
+                            </div>
+                            <div class="col-8">
+                               <div class="form-group">
+                                   <label for="nombre">imagen *</label>
+                                   <input id="imagen" name="imagen" th:field="*{imagen}" type="text"
+                                          class="form-control required">
+                            </div>
+                            <div class="form-group">
+                                   <label for="desc">Descripcion *</label>
+                                   <textarea id="desc" name="desc" th:field="*{descripcion}" type="text"
+                                          class="form-control required"></textarea>
+                            </div>
+                           </div>
+                           <div class="col-8">
+                               
+                            <div class="form-group">
+                                   <label for="fecIni">Fecha Inicio *</label>
+                                   <input id="fecIni" name="fecIni" th:field="*{fecinicio}" type="date"
+                                          class="form-control required">
+                            </div>
+                            <div class="form-group">
+                                   <label for="fecTerm">Fecha Termino *</label>
+                                   <input id="fecTerm" name="fecTerm" th:field="*{fectermino}" type="date"
+                                          class="form-control required">
+                            </div>
+                            <div class="form-group pb-3">
+                                   <label for="cupos">Cupos *</label>
+                                   <input id="cupos" name="cupos" th:field="*{cupos}" type="number"
+                                          class="form-control required">
+                            </div>
+                           
+                       </div>
+          </fieldset>  
+          <button class="btn btn-lg btn-primary btn-block pt-2" type="submit">Guardar</button> 
+       </form>
+       <span style="color:red" th:text="${mensaje}"></span>
+     
+
+      </div>
+    </section><!-- End About Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-7 col-md-12 footer-info">
+            <a href="/" class="logo d-flex align-items-center">
+              <span>Java People</span>
+              <img src="assets/img/logo.png" alt=""> 
+            </a>
+            <p>Es la única iniciativa país que integra a las empresas, instituciones de formación y gobierno para desarrollar nuevas capacidades en las personas, en sintonía con las demandas de la economía digital, generando más oportunidades para acceder a empleos de calidad.</p>
+            <div class="social-links d-flex  mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Links de Utilidad</h4>
+            <ul>
+              <li><a href="/" class="active">Home</a></li>
+	          <li><a href="/registrate">Registrame</a></li>
+	          <li><a href="/cursosDisponibles">Cursos Disponibles</a></li>
+	          <li><a href="/homepanel">Mi Panel</a></li>
+	          <li><a href="/logout">Cerrar Sesion</a></li>
+            </ul>
+          </div>
+
+          
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contactanos</h4>
+            <p>
+              Avenida Siempreviva #742 <br>
+              Springfiedl<br>
+              United States <br><br>
+              <strong>Telefono:</strong> (011) 4811-5733<br>
+              <strong>Email:</strong> Java-peole@java-people.cl<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>
